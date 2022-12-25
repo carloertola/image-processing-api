@@ -5,7 +5,7 @@ const routes = express.Router();
 
 routes.get('/', (req, res) => {
     res.send('This is an app that allows you to do things to your images: </br>'+
-    'Resize your images: <a href="/api/resize">Resize Route</a></br>');
+    'Resize your images: <a href="/api/resize">Resize Route</a>');
 });
 
 routes.use('/resize', resize);
