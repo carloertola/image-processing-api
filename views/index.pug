@@ -1,0 +1,25 @@
+html
+  head
+    title= 'Image Resizing App'
+    style(type="text/css").
+        h1 {
+            color: brown
+        }
+  body
+    h1= 'Image Resizing App'
+    p= 'You can use this app to resize your images quickly and efficiently'
+    h2= 'To resize one image'
+    p= '- Specify the filename (including extension: JPEG, PNG, WebP, GIF, AVIF, TIFF and SVG)'
+    p= '- Specify the width and height'
+    p= 'E.g. '
+        code= 'http://localhost:3000/api/resize?filename=fjord.jpg&width=200&height=200'
+    h2= 'To resize all existing images'
+    p= '- Specify the width and height only (without the filename)'
+    p= 'E.g. '
+        code= 'http://localhost:3000/api/resize?width=200&height=200'
+    h2= 'To see an existing image'
+    p= '- Specify the filename (including extension: JPEG, PNG, WebP, GIF, AVIF, TIFF and SVG)'
+    p= 'E.g. '
+        code= 'http://localhost:3000/api/resize?filename=fjord.jpg'
+    h2= 'Files currently available'
+    p= filesList
