@@ -1,28 +1,21 @@
 # Image Processing API
-This image processing API/library allows you to resize full-size images into your preferred dimensions
+This image processing API/library allows you to resize full-size images into your preferred dimensions.
 
-It is a project developed as a culmination of the first 4 lessons of the Udacity Full Stack Javascript Developer course:
+It is a project developed as a culmination of the first 4 lessons of the Udacity Full Stack Javascript Developer course.
 
-Lesson 1: Getting Started with Node.js
+## Dependencies Used
+Express, Jasmine, Jasmine-Spec-Reporter, Pug, Sharp, Supertest
 
-- Get up and running with Node.js concepts
-- How Node.js can be extended
-- Work with Node Package Manager (NPM)
+## How to Use
+Once you've installed all your project dependencies, configured them, and started your server:
+Go to <code>localhost:3000/</code> on your browser where you shall find the instructions on how to use this app
 
-Lesson 2: Developing with Typescript
+## Scripts
+To transpile Typescript files: <code>npm run build</code></br>
+To run prettier: <code>npm run prettier</code></br>
+To run eslint: <code>npm run lint</code></br>
+To start server: <code>npm run start</code></br>
+To run build and run tests: <code>npm run test</code>
 
-- Typescript fundamentals
-- How to write Typescript
-- Working with Typescript in professional environments
-
-Lesson 3: Unit Testing with Jasmine
-
-- Unit testing and test-driven development (TDD)
-- Configuring Jasmine
-- Writing and running tests
-
-Lesson 4: Building a Server
-
-- Working with Express
-- Adding Middleware
-- Using the File System Module
+### Contact
+If you have any questions or would like to suggest improvements: info@carloertola.com
