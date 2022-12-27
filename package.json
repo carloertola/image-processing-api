@@ -4,7 +4,7 @@
   "description": "image resizing api/library",
   "main": "index.js",
   "scripts": {
-    "prettier": "prettier --config .prettierrc 'src' --write",
+    "prettier": "prettier --config .prettierrc.json \"src/**/*.ts\" --write",
     "lint": "eslint . --ext .ts",
     "build": "npx tsc",
     "jasmine": "jasmine",
@@ -40,7 +40,12 @@
     "@types/typescript": "^2.0.0",
     "eslint": "^8.30.0",
     "eslint-config-prettier": "^8.5.0",
+    "eslint-config-semistandard": "^17.0.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.6.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.1.1",
     "nodemon": "^2.0.20",
     "prettier": "^2.8.1",
     "ts-node": "^10.9.1",
@@ -50,6 +55,7 @@
     "express": "^4.18.2",
     "jasmine": "^4.5.0",
     "jasmine-spec-reporter": "^7.0.0",
+    "pug": "^3.0.2",
     "sharp": "^0.31.3",
     "supertest": "^6.3.3"
   }
