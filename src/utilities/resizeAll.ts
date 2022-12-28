@@ -2,7 +2,10 @@ import fs from 'fs';
 import path from 'path';
 import resize from '../utilities/resize';
 
-const resizeAll = async (width: number | null | undefined, height: number | null | undefined) => {
+const resizeAll = async (
+  width: number | null | undefined,
+  height: number | null | undefined
+) => {
   await fs.readdir(
     path.join(__dirname, '..', '..', 'images', 'full_size_images'),
     (err, files) => {
