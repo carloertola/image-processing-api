@@ -12,8 +12,14 @@ fs.readdir(
     if (err) {
       console.log(err);
     } else {
+      const filesLength = files.length;
       files.forEach((file) => {
-        filesList += file + ' | ';
+        // separates filenames with vertical bar except the last one
+        if (!(file === files[filesLength - 1])) {
+          filesList += file + ' | ';
+        } else {
+          filesList += file;
+        }
       });
     }
     lsFiles();
