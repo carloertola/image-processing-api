@@ -1,7 +1,11 @@
 import sharp from 'sharp';
 import path from 'path';
 
-const resize = async (filename: string, width: number | null | undefined, height: number | null | undefined) => {
+const resize = async (
+  filename: string,
+  width: number | null | undefined,
+  height: number | null | undefined
+) => {
   try {
     await sharp(
       path.join(__dirname, '..', '..', 'images', 'full_size_images', filename)
