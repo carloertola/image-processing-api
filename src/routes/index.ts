@@ -23,21 +23,32 @@ routes.get('/resize', async (req, res) => {
   const width = Number(req.query.width);
   const height = Number(req.query.height);
 
-  // if user specified filename, width, and height, call resize function
+  // check if user specified filename, width, and height
   if (req.query.filename && req.query.width && req.query.height) {
-    await resize(filename, width, height);
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'image/jpg');
-    res.sendFile(
-      path.join(
-        __dirname,
-        '..',
-        '..',
-        'images',
-        'thumb_images',
-        width + 'x' + height + ' ' + filename
-      )
-    );
+    // check if file exists
+    if(fs.existsSync(
+      path.join(__dirname, '..', '..', 'images', 'full_size_images', filename)
+    )) {
+      // check if file has already been resized
+      if(fs.existsSync(
+        path.join(__dirname, '..', '..', 'images', 'thumb_images', width + 'x' + height + ' ' + filename)
+      )) {
+        // if it exists, send existing file
+        res.sendFile(path.join(__dirname, '..', '..', 'images', 'thumb_images', width + 'x' + height + ' ' + filename));
+      } else {
+        // resize the full size image to the requested width and height
+        await resize(filename, width, height);
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'image/jpg');
+        res.sendFile(path.join(__dirname, '..', '..', 'images', 'thumb_images', width + 'x' + height + ' ' + filename));
+      }
+    } else {
+        res.statusCode = 404;
+        res.send(
+        'The file you requested does not exist </br>' +
+          '<a href="http://localhost:3000">Go back to instructions</a>'
+      );
+    }
     // if user specified only width and height, call the resizeAll function
   } else if (req.query.width && req.query.height) {
     await resizeAll(width, height);
