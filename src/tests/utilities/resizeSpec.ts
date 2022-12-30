@@ -3,7 +3,7 @@ import path from 'path';
 import resize from '../../utilities/resize';
 
 describe('tests the resize function', () => {
-  it('should crete a resized file in thumb_images folder', () => {
+  it('should create a resized file in thumb_images folder', () => {
     resize('fjord.jpg', 200, 200);
     const fileExistsCheck = fs.existsSync(
       path.join(
