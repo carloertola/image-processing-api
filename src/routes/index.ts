@@ -27,7 +27,7 @@ routes.get(
 
     // check if user specified filename, width, and height
     if (req.query.filename && req.query.width && req.query.height) {
-      // check if file exists
+      // check if file exists and width/height are valid
       if (
         fs.existsSync(
           path.join(
@@ -37,8 +37,8 @@ routes.get(
             'images',
             'full_size_images',
             filename
-          )
-        )
+          ) 
+        ) && !isNaN(width) && !isNaN(height) && width >= 0 && height >= 0
       ) {
         // check if file has already been resized
         if (
@@ -83,16 +83,21 @@ routes.get(
       } else {
         res.statusCode = 404;
         res.send(
-          'The file you requested does not exist </br>' +
+          'The file you requested does not exist or your width/height ' +
+          'was provided with non-numeric or negative values </br>' +
             '<a href="http://localhost:3000">Go back to instructions</a>'
         );
       }
       // if user specified only width and height, call the resizeAll function
     } else if (req.query.width && req.query.height) {
-      await resizeAll(width, height);
-      res.send(
-        'Files have been resized </br>' + '<a href="/">Go back to main app</a>'
-      );
+        if (!isNaN(width) && !isNaN(height) && width >= 0 && height >= 0) {
+          await resizeAll(width, height);
+          res.send(
+          'Files have been resized </br>' + '<a href="/">Go back to main app</a>');
+        } else {
+          res.send('Width and/or height values are invalid!</br>' +
+          '<a href="http://localhost:3000">Go back to instructions</a>');
+        }
       // if user specified filename and file exists, show full size image
     } else if (req.query.filename) {
       // checks if file exists
